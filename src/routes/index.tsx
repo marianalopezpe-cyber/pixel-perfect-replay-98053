@@ -168,8 +168,15 @@ function Index() {
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {SITTERS.map((s, i) => (
             <article key={s.name} className="overflow-hidden rounded-3xl bg-card shadow-soft transition-shadow hover:shadow-lift">
-              <img src={caregiver} alt="" loading="lazy" width={816} height={816}
-                className="aspect-[4/3] w-full object-cover" style={{ objectPosition: `${20 + i * 30}% 30%` }} />
+              {i === 0 ? (
+                <img src={caregiver} alt="Paseadora con dos perros" loading="lazy" width={816} height={816} className="aspect-[4/3] w-full object-cover" />
+              ) : (
+                <div className="grid aspect-[4/3] place-items-center bg-peach-light">
+                  <span className="grid h-24 w-24 place-items-center blob bg-brand font-display text-3xl font-extrabold text-primary-foreground">
+                    {s.name.split(" ").map((w) => w[0]).join("")}
+                  </span>
+                </div>
+              )}
               <div className="p-5">
                 <div className="flex items-center justify-between gap-2">
                   <h3 className="truncate text-lg font-bold">{s.name}</h3>

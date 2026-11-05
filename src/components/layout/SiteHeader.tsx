@@ -22,22 +22,22 @@ export function SiteHeader() {
         <Link to="/" aria-label="Inicio MASConectados" className="shrink-0">
           <Logo className="h-9 sm:h-10" />
         </Link>
-        <nav className="hidden items-center gap-1 xl:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Principal">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
-              className="rounded-full px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary data-[status=active]:bg-peach-light data-[status=active]:text-primary"
+              className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary data-[status=active]:bg-peach-light data-[status=active]:text-primary"
             >
               {n.label}
             </Link>
           ))}
         </nav>
         <div className="hidden items-center gap-2 xl:flex">
-          <Button asChild variant="ghost" size="sm"><Link to="/ingresar">Iniciar sesión</Link></Button>
-          <Button asChild variant="outline" size="sm"><Link to="/registro">Registrarse</Link></Button>
-          <Button asChild size="sm"><Link to="/publicar">Publicar servicio</Link></Button>
+          <Button asChild variant="ghost" size="sm"><Link to="/ingresar">Ingresar</Link></Button>
+          <Button asChild variant="outline" size="sm" className="hidden 2xl:inline-flex"><Link to="/registro">Registrarse</Link></Button>
+          <Button asChild size="sm"><Link to="/publicar">Publicar</Link></Button>
         </div>
         <button
           className="grid h-10 w-10 place-items-center rounded-full bg-card shadow-soft xl:hidden"
