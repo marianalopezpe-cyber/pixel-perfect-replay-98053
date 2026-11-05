@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdopcionesRouteImport } from './routes/adopciones'
+import { Route as AsistenteRouteImport } from './routes/asistente'
+import { Route as CuentaRouteImport } from './routes/cuenta'
+import { Route as CuidadoresRouteImport } from './routes/cuidadores'
+import { Route as IngresarRouteImport } from './routes/ingresar'
+import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as PublicarRouteImport } from './routes/publicar'
+import { Route as RegistroRouteImport } from './routes/registro'
+import { Route as ServiciosRouteImport } from './routes/servicios'
+import { Route as VeterinariosRouteImport } from './routes/veterinarios'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdopcionesRoute = AdopcionesRouteImport.update({
+  id: '/adopciones',
+  path: '/adopciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AsistenteRoute = AsistenteRouteImport.update({
+  id: '/asistente',
+  path: '/asistente',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CuentaRoute = CuentaRouteImport.update({
+  id: '/cuenta',
+  path: '/cuenta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CuidadoresRoute = CuidadoresRouteImport.update({
+  id: '/cuidadores',
+  path: '/cuidadores',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IngresarRoute = IngresarRouteImport.update({
+  id: '/ingresar',
+  path: '/ingresar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketplaceRoute = MarketplaceRouteImport.update({
+  id: '/marketplace',
+  path: '/marketplace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicarRoute = PublicarRouteImport.update({
+  id: '/publicar',
+  path: '/publicar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegistroRoute = RegistroRouteImport.update({
+  id: '/registro',
+  path: '/registro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciosRoute = ServiciosRouteImport.update({
+  id: '/servicios',
+  path: '/servicios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VeterinariosRoute = VeterinariosRouteImport.update({
+  id: '/veterinarios',
+  path: '/veterinarios',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/adopciones': typeof AdopcionesRoute
+  '/asistente': typeof AsistenteRoute
+  '/cuenta': typeof CuentaRoute
+  '/cuidadores': typeof CuidadoresRoute
+  '/ingresar': typeof IngresarRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/publicar': typeof PublicarRoute
+  '/registro': typeof RegistroRoute
+  '/servicios': typeof ServiciosRoute
+  '/veterinarios': typeof VeterinariosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/adopciones': typeof AdopcionesRoute
+  '/asistente': typeof AsistenteRoute
+  '/cuenta': typeof CuentaRoute
+  '/cuidadores': typeof CuidadoresRoute
+  '/ingresar': typeof IngresarRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/publicar': typeof PublicarRoute
+  '/registro': typeof RegistroRoute
+  '/servicios': typeof ServiciosRoute
+  '/veterinarios': typeof VeterinariosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/adopciones': typeof AdopcionesRoute
+  '/asistente': typeof AsistenteRoute
+  '/cuenta': typeof CuentaRoute
+  '/cuidadores': typeof CuidadoresRoute
+  '/ingresar': typeof IngresarRoute
+  '/marketplace': typeof MarketplaceRoute
+  '/publicar': typeof PublicarRoute
+  '/registro': typeof RegistroRoute
+  '/servicios': typeof ServiciosRoute
+  '/veterinarios': typeof VeterinariosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/adopciones'
+    | '/asistente'
+    | '/cuenta'
+    | '/cuidadores'
+    | '/ingresar'
+    | '/marketplace'
+    | '/publicar'
+    | '/registro'
+    | '/servicios'
+    | '/veterinarios'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/adopciones'
+    | '/asistente'
+    | '/cuenta'
+    | '/cuidadores'
+    | '/ingresar'
+    | '/marketplace'
+    | '/publicar'
+    | '/registro'
+    | '/servicios'
+    | '/veterinarios'
+  id:
+    | '__root__'
+    | '/'
+    | '/adopciones'
+    | '/asistente'
+    | '/cuenta'
+    | '/cuidadores'
+    | '/ingresar'
+    | '/marketplace'
+    | '/publicar'
+    | '/registro'
+    | '/servicios'
+    | '/veterinarios'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdopcionesRoute: typeof AdopcionesRoute
+  AsistenteRoute: typeof AsistenteRoute
+  CuentaRoute: typeof CuentaRoute
+  CuidadoresRoute: typeof CuidadoresRoute
+  IngresarRoute: typeof IngresarRoute
+  MarketplaceRoute: typeof MarketplaceRoute
+  PublicarRoute: typeof PublicarRoute
+  RegistroRoute: typeof RegistroRoute
+  ServiciosRoute: typeof ServiciosRoute
+  VeterinariosRoute: typeof VeterinariosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/adopciones': {
+      id: '/adopciones'
+      path: '/adopciones'
+      fullPath: '/adopciones'
+      preLoaderRoute: typeof AdopcionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/asistente': {
+      id: '/asistente'
+      path: '/asistente'
+      fullPath: '/asistente'
+      preLoaderRoute: typeof AsistenteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cuenta': {
+      id: '/cuenta'
+      path: '/cuenta'
+      fullPath: '/cuenta'
+      preLoaderRoute: typeof CuentaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cuidadores': {
+      id: '/cuidadores'
+      path: '/cuidadores'
+      fullPath: '/cuidadores'
+      preLoaderRoute: typeof CuidadoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ingresar': {
+      id: '/ingresar'
+      path: '/ingresar'
+      fullPath: '/ingresar'
+      preLoaderRoute: typeof IngresarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketplace': {
+      id: '/marketplace'
+      path: '/marketplace'
+      fullPath: '/marketplace'
+      preLoaderRoute: typeof MarketplaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publicar': {
+      id: '/publicar'
+      path: '/publicar'
+      fullPath: '/publicar'
+      preLoaderRoute: typeof PublicarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/registro': {
+      id: '/registro'
+      path: '/registro'
+      fullPath: '/registro'
+      preLoaderRoute: typeof RegistroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicios': {
+      id: '/servicios'
+      path: '/servicios'
+      fullPath: '/servicios'
+      preLoaderRoute: typeof ServiciosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/veterinarios': {
+      id: '/veterinarios'
+      path: '/veterinarios'
+      fullPath: '/veterinarios'
+      preLoaderRoute: typeof VeterinariosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdopcionesRoute: AdopcionesRoute,
+  AsistenteRoute: AsistenteRoute,
+  CuentaRoute: CuentaRoute,
+  CuidadoresRoute: CuidadoresRoute,
+  IngresarRoute: IngresarRoute,
+  MarketplaceRoute: MarketplaceRoute,
+  PublicarRoute: PublicarRoute,
+  RegistroRoute: RegistroRoute,
+  ServiciosRoute: ServiciosRoute,
+  VeterinariosRoute: VeterinariosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
