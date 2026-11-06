@@ -65,7 +65,7 @@ function ServiciosPage() {
       {/* Category chips */}
       <div className="mt-6 flex flex-wrap gap-2">
         {CATEGORIES.map((c) => {
-          const Icon = CAT_ICONS[c];
+          const Icon = CAT_ICONS[c] ?? Bone;
           const active = cat === c;
           return (
             <button

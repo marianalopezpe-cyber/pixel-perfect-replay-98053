@@ -19,7 +19,7 @@ export const Route = createFileRoute("/adopciones")({
 
 function AdopcionesPage() {
   const [species, setSpecies] = useState<"Perro" | "Gato" | null>(null);
-  const results = useMemo(() => PETS.filter((p) => !species || p.species === species || (species === "Gato" && p.species === "Gato")), [species]);
+  const results = useMemo(() => PETS.filter((p) => !species || (species === "Gato" ? p.species.startsWith("Gat") : p.species === species)), [species]);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">

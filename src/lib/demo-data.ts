@@ -103,7 +103,7 @@ export const PRODUCTS: Product[] = [
 
 export type AdoptablePet = {
   name: string;
-  species: "Perro" | "Gato";
+  species: "Perro" | "Gato" | "Gata";
   breed: string;
   age: string;
   sex: string;
