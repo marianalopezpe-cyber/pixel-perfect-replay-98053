@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import {
-  ArrowRight, Bone, CalendarDays, Dog, GraduationCap, Home, MapPin, Scissors,
+  ArrowRight, Bone, Dog, GraduationCap, Home, MapPin, Scissors,
   Search, Sparkles, Star, Stethoscope, Sun, Quote,
 } from "lucide-react";
 import { useState } from "react";
@@ -37,6 +37,7 @@ const SITTERS = [
   { name: "Valentina R.", zone: "Laureles", service: "Paseos y cuidado en casa", price: "Desde $25.000", rating: 4.9 },
   { name: "Andrés M.", zone: "Envigado", service: "Hospedaje en hogar", price: "Desde $60.000 / noche", rating: 4.8 },
   { name: "Camila T.", zone: "El Poblado", service: "Guardería diurna", price: "Desde $40.000 / día", rating: 5.0 },
+  { name: "Santiago G.", zone: "Bello", service: "Cuidado nocturno", price: "Desde $35.000", rating: 4.7 },
 ];
 const CLINICS = [
   { name: "Clínica Patitas", zone: "Belén", tags: ["Medicina general", "Vacunación"], hours: "Lun–Sáb 8:00–19:00" },
@@ -76,7 +77,6 @@ function Index() {
   const navigate = useNavigate();
   const [zone, setZone] = useState("Medellín");
   const [cat, setCat] = useState("Veterinaria");
-  const [date, setDate] = useState("");
 
   return (
     <div className="overflow-x-clip">
@@ -97,7 +97,7 @@ function Index() {
 
             <form
               onSubmit={(e) => { e.preventDefault(); navigate({ to: "/servicios" }); }}
-              className="mt-8 grid gap-2 rounded-3xl bg-card p-2 shadow-lift sm:grid-cols-[1fr_1fr_1fr_auto]"
+              className="mt-8 grid gap-2 rounded-3xl bg-card p-2 shadow-lift sm:grid-cols-[1fr_1fr_auto]"
               aria-label="Buscar servicios"
             >
               <label className="flex items-center gap-2 rounded-2xl px-4 py-2 hover:bg-muted">
@@ -116,13 +116,6 @@ function Index() {
                   <select value={cat} onChange={(e) => setCat(e.target.value)} className="bg-transparent text-sm font-medium outline-none">
                     {CATEGORIES.map((c) => <option key={c.label}>{c.label}</option>)}
                   </select>
-                </span>
-              </label>
-              <label className="flex items-center gap-2 rounded-2xl px-4 py-2 hover:bg-muted">
-                <CalendarDays className="h-4 w-4 shrink-0 text-primary" />
-                <span className="flex min-w-0 flex-col">
-                  <span className="text-[11px] font-medium text-muted-foreground">Fecha</span>
-                  <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="bg-transparent text-sm font-medium outline-none" />
                 </span>
               </label>
               <Button type="submit" variant="hero" size="lg" className="h-full min-h-12">
@@ -165,29 +158,29 @@ function Index() {
       {/* Sitters */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
         <SectionHead eyebrow="Cuidadores" title="Cuidadores destacados" to="/cuidadores" cta="Explorar cuidadores" />
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {SITTERS.map((s, i) => (
             <article key={s.name} className="overflow-hidden rounded-3xl bg-card shadow-soft transition-shadow hover:shadow-lift">
               {i === 0 ? (
-                <img src={caregiver} alt="Paseadora con dos perros" loading="lazy" width={816} height={816} className="aspect-[4/3] w-full object-cover" />
+                <img src={caregiver} alt="Paseadora con dos perros" loading="lazy" width={816} height={816} className="aspect-[16/9] w-full object-cover" />
               ) : (
-                <div className="grid aspect-[4/3] place-items-center bg-peach-light">
-                  <span className="grid h-24 w-24 place-items-center blob bg-brand font-display text-3xl font-extrabold text-primary-foreground">
+                <div className="grid aspect-[16/9] place-items-center bg-peach-light">
+                  <span className="grid h-16 w-16 place-items-center blob bg-brand font-display text-2xl font-extrabold text-primary-foreground">
                     {s.name.split(" ").map((w) => w[0]).join("")}
                   </span>
                 </div>
               )}
-              <div className="p-5">
+              <div className="p-4">
                 <div className="flex items-center justify-between gap-2">
-                  <h3 className="truncate text-lg font-bold">{s.name}</h3>
+                  <h3 className="truncate text-base font-bold">{s.name}</h3>
                   <DemoBadge />
                 </div>
-                <p className="mt-1 text-sm text-muted-foreground">{s.service}</p>
-                <div className="mt-4 flex items-center justify-between text-sm">
-                  <span className="flex items-center gap-1 text-muted-foreground"><MapPin className="h-4 w-4" />{s.zone}</span>
-                  <span className="flex items-center gap-1 font-medium"><Star className="h-4 w-4 fill-primary text-primary" />{s.rating}</span>
+                <p className="mt-0.5 truncate text-sm text-muted-foreground">{s.service}</p>
+                <div className="mt-3 flex items-center justify-between text-sm">
+                  <span className="flex items-center gap-1 text-muted-foreground"><MapPin className="h-3.5 w-3.5" />{s.zone}</span>
+                  <span className="flex items-center gap-1 font-medium"><Star className="h-3.5 w-3.5 fill-primary text-primary" />{s.rating}</span>
                 </div>
-                <p className="mt-3 font-display font-bold text-primary">{s.price}</p>
+                <p className="mt-2 font-display text-sm font-bold text-primary">{s.price}</p>
               </div>
             </article>
           ))}
