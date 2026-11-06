@@ -15,7 +15,9 @@ import { Route as AsistenteRouteImport } from './routes/asistente'
 import { Route as CuentaRouteImport } from './routes/cuenta'
 import { Route as CuidadoresRouteImport } from './routes/cuidadores'
 import { Route as IngresarRouteImport } from './routes/ingresar'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
+import { Route as MascotaiRouteImport } from './routes/mascotai'
 import { Route as PublicarRouteImport } from './routes/publicar'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as ServiciosRouteImport } from './routes/servicios'
@@ -51,9 +53,19 @@ const IngresarRoute = IngresarRouteImport.update({
   path: '/ingresar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MarketplaceRoute = MarketplaceRouteImport.update({
   id: '/marketplace',
   path: '/marketplace',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MascotaiRoute = MascotaiRouteImport.update({
+  id: '/mascotai',
+  path: '/mascotai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PublicarRoute = PublicarRouteImport.update({
@@ -84,7 +96,9 @@ export interface FileRoutesByFullPath {
   '/cuenta': typeof CuentaRoute
   '/cuidadores': typeof CuidadoresRoute
   '/ingresar': typeof IngresarRoute
+  '/login': typeof LoginRoute
   '/marketplace': typeof MarketplaceRoute
+  '/mascotai': typeof MascotaiRoute
   '/publicar': typeof PublicarRoute
   '/registro': typeof RegistroRoute
   '/servicios': typeof ServiciosRoute
@@ -97,7 +111,9 @@ export interface FileRoutesByTo {
   '/cuenta': typeof CuentaRoute
   '/cuidadores': typeof CuidadoresRoute
   '/ingresar': typeof IngresarRoute
+  '/login': typeof LoginRoute
   '/marketplace': typeof MarketplaceRoute
+  '/mascotai': typeof MascotaiRoute
   '/publicar': typeof PublicarRoute
   '/registro': typeof RegistroRoute
   '/servicios': typeof ServiciosRoute
@@ -111,7 +127,9 @@ export interface FileRoutesById {
   '/cuenta': typeof CuentaRoute
   '/cuidadores': typeof CuidadoresRoute
   '/ingresar': typeof IngresarRoute
+  '/login': typeof LoginRoute
   '/marketplace': typeof MarketplaceRoute
+  '/mascotai': typeof MascotaiRoute
   '/publicar': typeof PublicarRoute
   '/registro': typeof RegistroRoute
   '/servicios': typeof ServiciosRoute
@@ -126,7 +144,9 @@ export interface FileRouteTypes {
     | '/cuenta'
     | '/cuidadores'
     | '/ingresar'
+    | '/login'
     | '/marketplace'
+    | '/mascotai'
     | '/publicar'
     | '/registro'
     | '/servicios'
@@ -139,7 +159,9 @@ export interface FileRouteTypes {
     | '/cuenta'
     | '/cuidadores'
     | '/ingresar'
+    | '/login'
     | '/marketplace'
+    | '/mascotai'
     | '/publicar'
     | '/registro'
     | '/servicios'
@@ -152,7 +174,9 @@ export interface FileRouteTypes {
     | '/cuenta'
     | '/cuidadores'
     | '/ingresar'
+    | '/login'
     | '/marketplace'
+    | '/mascotai'
     | '/publicar'
     | '/registro'
     | '/servicios'
@@ -166,7 +190,9 @@ export interface RootRouteChildren {
   CuentaRoute: typeof CuentaRoute
   CuidadoresRoute: typeof CuidadoresRoute
   IngresarRoute: typeof IngresarRoute
+  LoginRoute: typeof LoginRoute
   MarketplaceRoute: typeof MarketplaceRoute
+  MascotaiRoute: typeof MascotaiRoute
   PublicarRoute: typeof PublicarRoute
   RegistroRoute: typeof RegistroRoute
   ServiciosRoute: typeof ServiciosRoute
@@ -217,11 +243,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IngresarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/marketplace': {
       id: '/marketplace'
       path: '/marketplace'
       fullPath: '/marketplace'
       preLoaderRoute: typeof MarketplaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mascotai': {
+      id: '/mascotai'
+      path: '/mascotai'
+      fullPath: '/mascotai'
+      preLoaderRoute: typeof MascotaiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/publicar': {
@@ -262,7 +302,9 @@ const rootRouteChildren: RootRouteChildren = {
   CuentaRoute: CuentaRoute,
   CuidadoresRoute: CuidadoresRoute,
   IngresarRoute: IngresarRoute,
+  LoginRoute: LoginRoute,
   MarketplaceRoute: MarketplaceRoute,
+  MascotaiRoute: MascotaiRoute,
   PublicarRoute: PublicarRoute,
   RegistroRoute: RegistroRoute,
   ServiciosRoute: ServiciosRoute,
