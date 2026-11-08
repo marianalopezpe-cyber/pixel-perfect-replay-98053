@@ -8,6 +8,8 @@ import { SITTERS, ZONES } from "@/lib/demo-data";
 export const Route = createFileRoute("/cuidadores")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Cuidadores y paseadores — MASConectados" },
       { name: "description", content: "Perfiles con experiencia, tarifas en COP, disponibilidad, certificaciones y estado de verificación." },
       { property: "og:title", content: "Cuidadores y paseadores — MASConectados" },

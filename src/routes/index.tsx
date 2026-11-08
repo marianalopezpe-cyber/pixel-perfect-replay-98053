@@ -13,6 +13,8 @@ import puppy from "@/assets/adopt-puppy.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "MASConectados — Todo lo que tu mascota necesita" },
       { name: "description", content: "Encuentra veterinarios, cuidadores, paseadores, productos y adopciones en Medellín y el Valle de Aburrá." },
       { property: "og:title", content: "MASConectados — Todo lo que tu mascota necesita" },
@@ -252,7 +254,7 @@ function Index() {
             <div className="ml-auto max-w-xs rounded-2xl rounded-br-sm bg-primary px-4 py-3 text-sm text-primary-foreground">¿Cuántas veces al día debo alimentar a mi cachorro?</div>
             <div className="max-w-sm rounded-2xl rounded-bl-sm bg-background/10 px-4 py-3 text-sm">Depende de su edad y tamaño. Te doy una guía general y, si notas algo inusual, consulta a tu veterinario.</div>
             <p className="pt-2 text-xs text-background/60">No emite diagnósticos ni prescribe medicamentos.</p>
-            <Button asChild variant="hero" className="mt-2"><Link to="/asistente">Probar el asistente <ArrowRight /></Link></Button>
+            <Button asChild variant="hero" className="mt-2"><Link to="/mascotai">Probar el asistente <ArrowRight /></Link></Button>
           </div>
         </div>
       </section>

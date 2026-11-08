@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Routing
+- Keep the shared shell around an Outlet and each module bound to its own leaf route; route regression tests guard against accidental content reuse.
+- Keep the assistant UI in a shared component mounted at /mascotai, and preserve /asistente as a redirect so old links remain valid.

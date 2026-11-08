@@ -7,6 +7,8 @@ import { CATEGORIES, SERVICES, ZONES } from "@/lib/demo-data";
 export const Route = createFileRoute("/servicios")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Servicios — MASConectados" },
       { name: "description", content: "Veterinaria, paseos, hospedaje, guardería, peluquería y entrenamiento con filtros por precio, zona y disponibilidad." },
       { property: "og:title", content: "Servicios — MASConectados" },

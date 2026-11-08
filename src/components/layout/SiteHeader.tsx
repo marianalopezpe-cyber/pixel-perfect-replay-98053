@@ -11,7 +11,7 @@ export const NAV = [
   { to: "/veterinarios", label: "Veterinarios" },
   { to: "/marketplace", label: "Marketplace" },
   { to: "/adopciones", label: "Adopciones" },
-  { to: "/asistente", label: "Asistente IA" },
+  { to: "/mascotai", label: "Asistente IA" },
 ] as const;
 
 export function SiteHeader() {

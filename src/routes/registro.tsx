@@ -7,6 +7,8 @@ import { Logo } from "@/components/brand/Logo";
 export const Route = createFileRoute("/registro")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Registrarse — MASConectados" },
       { name: "description", content: "Crea tu cuenta como propietario, cuidador, veterinario, vendedor o fundación." },
       { property: "og:title", content: "Registrarse — MASConectados" },

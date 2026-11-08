@@ -7,6 +7,8 @@ import { PRODUCT_CATS, PRODUCTS, formatCOP } from "@/lib/demo-data";
 export const Route = createFileRoute("/marketplace")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Marketplace — MASConectados" },
       { name: "description", content: "Alimentos, juguetes, accesorios, camas, higiene y snacks con carrito e historial de pedidos." },
       { property: "og:title", content: "Marketplace — MASConectados" },

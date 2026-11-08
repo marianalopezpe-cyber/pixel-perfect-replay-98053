@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/cuenta")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Mi cuenta — MASConectados" },
       { name: "description", content: "Registra varias mascotas con vacunas, alergias, historial veterinario y calendario de citas." },
       { property: "og:title", content: "Mi cuenta — MASConectados" },

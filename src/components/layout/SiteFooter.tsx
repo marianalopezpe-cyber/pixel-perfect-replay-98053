@@ -6,7 +6,7 @@ const cols = [
     { to: "/servicios", label: "Servicios" }, { to: "/cuidadores", label: "Cuidadores y paseadores" },
     { to: "/veterinarios", label: "Veterinarios" }, { to: "/marketplace", label: "Marketplace" } ] },
   { title: "Comunidad", links: [
-    { to: "/adopciones", label: "Adopciones" }, { to: "/asistente", label: "Asistente IA" },
+    { to: "/adopciones", label: "Adopciones" }, { to: "/mascotai", label: "Asistente IA" },
     { to: "/publicar", label: "Publicar servicios" } ] },
   { title: "Tu cuenta", links: [
     { to: "/ingresar", label: "Iniciar sesión" }, { to: "/registro", label: "Registrarse" },

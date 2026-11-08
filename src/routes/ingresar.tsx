@@ -7,6 +7,8 @@ import { Logo } from "@/components/brand/Logo";
 export const Route = createFileRoute("/ingresar")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Iniciar sesión — MASConectados" },
       { name: "description", content: "Accede a tu cuenta para gestionar tus mascotas, citas y servicios." },
       { property: "og:title", content: "Iniciar sesión — MASConectados" },
