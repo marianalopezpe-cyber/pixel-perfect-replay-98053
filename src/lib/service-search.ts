@@ -1,8 +1,10 @@
 import { CATEGORIES, ZONES } from "@/lib/demo-data";
 
-export function validateServiceSearch(search: Record<string, unknown>): { category?: string; zone?: string } {
+export function validateServiceSearch(search: Record<string, unknown>): { category?: string | undefined; zone?: string | undefined } {
+  const category = search["category"];
+  const zone = search["zone"];
   return {
-    category: typeof search.category === "string" && CATEGORIES.includes(search.category) ? search.category : undefined,
-    zone: typeof search.zone === "string" && ZONES.includes(search.zone) ? search.zone : undefined,
+    category: typeof category === "string" && CATEGORIES.includes(category) ? category : undefined,
+    zone: typeof zone === "string" && ZONES.includes(zone) ? zone : undefined,
   };
 }
