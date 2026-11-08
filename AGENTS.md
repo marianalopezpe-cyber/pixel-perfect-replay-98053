@@ -32,3 +32,5 @@ use the editor.
 ## Routing
 - Keep the shared shell around an Outlet and each module bound to its own leaf route; route regression tests guard against accidental content reuse.
 - Keep the assistant UI in a shared component mounted at /mascotai, and preserve /asistente as a redirect so old links remain valid.
+- Service category and location filters live in validated URL search parameters so homepage links, reloads and browser navigation retain the selected catalogue.
+- Reuse the Embla-backed design-system carousel for homepage categories to provide touch, arrow and position navigation consistently.

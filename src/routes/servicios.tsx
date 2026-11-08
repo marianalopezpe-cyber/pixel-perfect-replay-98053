@@ -3,8 +3,10 @@ import { ArrowRight, Bone, Dog, GraduationCap, Home, MapPin, Scissors, Search, S
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { CATEGORIES, SERVICES, ZONES } from "@/lib/demo-data";
+import { validateServiceSearch } from "@/lib/service-search";
 
 export const Route = createFileRoute("/servicios")({
+  validateSearch: validateServiceSearch,
   head: () => ({
     meta: [
       { property: "og:type", content: "website" },
@@ -25,8 +27,10 @@ const CAT_ICONS: Record<string, typeof Stethoscope> = {
 
 function ServiciosPage() {
   const [query, setQuery] = useState("");
-  const [cat, setCat] = useState<string | null>(null);
-  const [zone, setZone] = useState("Todas");
+  const search = Route.useSearch();
+  const navigate = Route.useNavigate();
+  const cat = search.category;
+  const zone = search.zone ?? "Todas";
 
   const results = useMemo(() => SERVICES.filter((s) => {
     if (cat && s.category !== cat) return false;
@@ -56,12 +60,12 @@ function ServiciosPage() {
         </label>
         <label className="flex items-center gap-2 rounded-2xl px-4 py-2 hover:bg-muted">
           <MapPin className="h-4 w-4 shrink-0 text-primary" />
-          <select value={zone} onChange={(e) => setZone(e.target.value)} className="bg-transparent text-sm font-medium outline-none">
+          <select value={zone} onChange={(e) => navigate({ search: { ...search, zone: e.target.value === "Todas" ? undefined : e.target.value } })} className="bg-transparent text-sm font-medium outline-none">
             <option>Todas</option>
             {ZONES.map((z) => <option key={z}>{z}</option>)}
           </select>
         </label>
-        <Button variant="hero" onClick={() => { setQuery(""); setCat(null); setZone("Todas"); }}>Limpiar filtros</Button>
+        <Button variant="hero" onClick={() => { setQuery(""); navigate({ search: {} }); }}>Limpiar filtros</Button>
       </div>
 
       {/* Category chips */}
@@ -70,13 +74,13 @@ function ServiciosPage() {
           const Icon = CAT_ICONS[c] ?? Bone;
           const active = cat === c;
           return (
-            <button
+            <Button variant="ghost"
               key={c}
-              onClick={() => setCat(active ? null : c)}
+              onClick={() => navigate({ search: { ...search, category: active ? undefined : c } })}
               className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium shadow-soft transition-all hover:-translate-y-0.5 ${active ? "bg-brand text-primary-foreground" : "bg-card"}`}
             >
               <Icon className="h-4 w-4" /> {c}
-            </button>
+            </Button>
           );
         })}
       </div>
