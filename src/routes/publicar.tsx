@@ -7,6 +7,8 @@ import { CATEGORIES, ZONES } from "@/lib/demo-data";
 export const Route = createFileRoute("/publicar")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Publicar servicios — MASConectados" },
       { name: "description", content: "Publica tus servicios y llega a propietarios de mascotas en el Valle de Aburrá." },
       { property: "og:title", content: "Publicar servicios — MASConectados" },

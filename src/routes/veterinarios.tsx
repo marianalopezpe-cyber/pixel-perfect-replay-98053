@@ -8,6 +8,8 @@ import { CLINICS, ZONES } from "@/lib/demo-data";
 export const Route = createFileRoute("/veterinarios")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Veterinarios y clínicas — MASConectados" },
       { name: "description", content: "Especialidades, horarios, tarifas y solicitud de citas con profesionales verificados." },
       { property: "og:title", content: "Veterinarios y clínicas — MASConectados" },

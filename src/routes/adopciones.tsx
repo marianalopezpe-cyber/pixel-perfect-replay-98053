@@ -8,6 +8,8 @@ import { PETS } from "@/lib/demo-data";
 export const Route = createFileRoute("/adopciones")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Adopciones — MASConectados" },
       { name: "description", content: "Mascotas de fundaciones y refugios con información sanitaria, requisitos y formulario de postulación." },
       { property: "og:title", content: "Adopciones — MASConectados" },
