@@ -18,6 +18,7 @@ import { Route as IngresarRouteImport } from './routes/ingresar'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MarketplaceRouteImport } from './routes/marketplace'
 import { Route as MascotaiRouteImport } from './routes/mascotai'
+import { Route as PqrsRouteImport } from './routes/pqrs'
 import { Route as PublicarRouteImport } from './routes/publicar'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as ServiciosRouteImport } from './routes/servicios'
@@ -68,6 +69,11 @@ const MascotaiRoute = MascotaiRouteImport.update({
   path: '/mascotai',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PqrsRoute = PqrsRouteImport.update({
+  id: '/pqrs',
+  path: '/pqrs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PublicarRoute = PublicarRouteImport.update({
   id: '/publicar',
   path: '/publicar',
@@ -99,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/marketplace': typeof MarketplaceRoute
   '/mascotai': typeof MascotaiRoute
+  '/pqrs': typeof PqrsRoute
   '/publicar': typeof PublicarRoute
   '/registro': typeof RegistroRoute
   '/servicios': typeof ServiciosRoute
@@ -114,6 +121,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/marketplace': typeof MarketplaceRoute
   '/mascotai': typeof MascotaiRoute
+  '/pqrs': typeof PqrsRoute
   '/publicar': typeof PublicarRoute
   '/registro': typeof RegistroRoute
   '/servicios': typeof ServiciosRoute
@@ -130,6 +138,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/marketplace': typeof MarketplaceRoute
   '/mascotai': typeof MascotaiRoute
+  '/pqrs': typeof PqrsRoute
   '/publicar': typeof PublicarRoute
   '/registro': typeof RegistroRoute
   '/servicios': typeof ServiciosRoute
@@ -147,6 +156,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/marketplace'
     | '/mascotai'
+    | '/pqrs'
     | '/publicar'
     | '/registro'
     | '/servicios'
@@ -162,6 +172,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/marketplace'
     | '/mascotai'
+    | '/pqrs'
     | '/publicar'
     | '/registro'
     | '/servicios'
@@ -177,6 +188,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/marketplace'
     | '/mascotai'
+    | '/pqrs'
     | '/publicar'
     | '/registro'
     | '/servicios'
@@ -193,6 +205,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MarketplaceRoute: typeof MarketplaceRoute
   MascotaiRoute: typeof MascotaiRoute
+  PqrsRoute: typeof PqrsRoute
   PublicarRoute: typeof PublicarRoute
   RegistroRoute: typeof RegistroRoute
   ServiciosRoute: typeof ServiciosRoute
@@ -264,6 +277,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MascotaiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pqrs': {
+      id: '/pqrs'
+      path: '/pqrs'
+      fullPath: '/pqrs'
+      preLoaderRoute: typeof PqrsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/publicar': {
       id: '/publicar'
       path: '/publicar'
@@ -305,6 +325,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MarketplaceRoute: MarketplaceRoute,
   MascotaiRoute: MascotaiRoute,
+  PqrsRoute: PqrsRoute,
   PublicarRoute: PublicarRoute,
   RegistroRoute: RegistroRoute,
   ServiciosRoute: ServiciosRoute,
