@@ -11,12 +11,14 @@ const cols = [
   { title: "Tu cuenta", links: [
     { to: "/ingresar", label: "Iniciar sesión" }, { to: "/registro", label: "Registrarse" },
     { to: "/cuenta", label: "Mis mascotas" } ] },
+  { title: "PQRS", links: [
+    { to: "/pqrs", label: "Peticiones y quejas" }, { to: "/pqrs", label: "Reclamos y sugerencias" } ] },
 ] as const;
 
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border bg-card">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 sm:grid-cols-2 md:grid-cols-[1.4fr_repeat(4,1fr)]">
         <div className="max-w-xs">
           <Logo className="h-10" />
           <p className="mt-4 text-sm text-muted-foreground">
@@ -28,7 +30,7 @@ export function SiteFooter() {
             <h4 className="text-sm font-bold">{c.title}</h4>
             <ul className="mt-4 space-y-2.5">
               {c.links.map((l) => (
-                <li key={l.to}><Link to={l.to} className="text-sm text-muted-foreground hover:text-primary">{l.label}</Link></li>
+                <li key={l.label}><Link to={l.to} className="text-sm text-muted-foreground hover:text-primary">{l.label}</Link></li>
               ))}
             </ul>
           </div>

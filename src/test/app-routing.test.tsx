@@ -3,7 +3,7 @@ import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
-import { NAV } from "@/components/layout/SiteHeader";
+import { NAV, SERVICES_MENU } from "@/components/layout/SiteHeader";
 
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
@@ -37,6 +37,12 @@ describe("App routing", () => {
   });
 
   it("links the main menu to every requested module", () => {
-    expect(NAV.map((item) => item.to)).toEqual(modulePaths);
+    expect(NAV.map((item) => item.to)).toEqual(["/", "/servicios", "/mascotai"]);
+    expect(SERVICES_MENU.map((item) => item.to)).toEqual(["/servicios", "/cuidadores", "/veterinarios", "/marketplace", "/adopciones"]);
+  });
+
+  it("has a PQRS page", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/pqrs").at(-1)?.routeId).toBe("/pqrs");
   });
 });
