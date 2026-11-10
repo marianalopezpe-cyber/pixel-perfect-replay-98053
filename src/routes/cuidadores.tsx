@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { BadgeCheck, MapPin, Search, Star } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import caregiver from "@/assets/caregiver.jpg";
 import { SITTERS, ZONES } from "@/lib/demo-data";
 
 export const Route = createFileRoute("/cuidadores")({
@@ -61,8 +60,8 @@ function CuidadoresPage() {
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {results.map((s) => (
           <article key={s.name} className="flex flex-col overflow-hidden rounded-3xl bg-card shadow-soft transition-shadow hover:shadow-lift">
-            {s.photo ? (
-              <img src={caregiver} alt={`${s.name}, cuidadora de mascotas`} loading="lazy" width={816} height={816} className="aspect-[16/9] w-full object-cover" />
+            {s.image ? (
+              <img src={s.image} alt={`${s.name}, cuidador(a) de mascotas`} loading="lazy" className="aspect-[16/9] w-full object-cover" />
             ) : (
               <div className="grid aspect-[16/9] place-items-center bg-peach-light">
                 <span className="grid h-16 w-16 place-items-center blob bg-brand font-display text-2xl font-extrabold text-primary-foreground">
