@@ -14,6 +14,8 @@ import foodPhoto from "@/assets/product-food.jpg";
 import toysPhoto from "@/assets/product-toys.jpg";
 import accessoriesPhoto from "@/assets/product-accessories.jpg";
 import hygienePhoto from "@/assets/product-hygiene.jpg";
+import guarderiaPhoto from "@/assets/guarderiadiurna.jpg.asset.json";
+import cuidadoNocturnoPhoto from "@/assets/cuidado_nocturno.jpg.asset.json";
 import { ServiceCarousel } from "@/components/home/ServiceCarousel";
 import { PETS, PRODUCTS as CATALOG_PRODUCTS, formatCOP } from "@/lib/demo-data";
 
