@@ -1,6 +1,18 @@
 // Datos de ejemplo para los módulos de MASConectados (Fase 2, sin backend).
 // Toda la información es ilustrativa y debe marcarse como "Ejemplo" en la UI.
 
+import caregiverPhoto from "@/assets/caregiver.jpg";
+import guarderiaPhoto from "@/assets/guarderiadiurna.jpg.asset.json";
+import cuidadoNocturnoPhoto from "@/assets/cuidado_nocturno.jpg.asset.json";
+import alimentoPhoto from "@/assets/alimento.jpg.asset.json";
+import arenaPhoto from "@/assets/arena.jpg.asset.json";
+import arnesPhoto from "@/assets/arnes.jpg.asset.json";
+import camaPhoto from "@/assets/cama.jpg.asset.json";
+import limpiezaDentalPhoto from "@/assets/limpieza_dental.jpg.asset.json";
+import pelotaPhoto from "@/assets/pelotta.jpg.asset.json";
+import shampooPhoto from "@/assets/shampoo.jpg.asset.json";
+import snackPhoto from "@/assets/snak.jpg.asset.json";
+
 export const ZONES = [
   "Medellín", "Envigado", "Sabaneta", "Itagüí", "Bello",
   "La Estrella", "Caldas", "Copacabana", "Girardota", "Barbosa",
@@ -43,18 +55,18 @@ export type Sitter = {
   rating: number;
   reviews: number;
   experience: string;
-  photo: boolean;
+  image?: string;
 };
 
 export const SITTERS: Sitter[] = [
-  { name: "Valentina R.", zone: "Laureles, Medellín", services: ["Paseos", "Cuidado en casa"], price: "Desde $25.000", rating: 4.9, reviews: 87, experience: "4 años de experiencia", photo: true },
-  { name: "Andrés M.", zone: "Envigado", services: ["Hospedaje", "Paseos"], price: "Desde $60.000 / noche", rating: 4.8, reviews: 64, experience: "3 años de experiencia", photo: false },
-  { name: "Camila T.", zone: "El Poblado, Medellín", services: ["Guardería diurna"], price: "Desde $40.000 / día", rating: 5.0, reviews: 112, experience: "5 años de experiencia", photo: false },
-  { name: "Santiago G.", zone: "Bello", services: ["Cuidado nocturno", "Paseos"], price: "Desde $35.000", rating: 4.7, reviews: 41, experience: "2 años de experiencia", photo: false },
-  { name: "Daniela P.", zone: "Sabaneta", services: ["Cuidado en casa", "Guardería"], price: "Desde $45.000", rating: 4.9, reviews: 58, experience: "3 años de experiencia", photo: false },
-  { name: "Juan Camilo V.", zone: "Itagüí", services: ["Paseos", "Entrenamiento básico"], price: "Desde $28.000", rating: 4.6, reviews: 33, experience: "2 años de experiencia", photo: false },
-  { name: "María Fernanda L.", zone: "La Estrella", services: ["Hospedaje", "Cuidado en casa"], price: "Desde $55.000 / noche", rating: 4.8, reviews: 72, experience: "6 años de experiencia", photo: false },
-  { name: "Esteban H.", zone: "Copacabana", services: ["Paseos"], price: "Desde $22.000", rating: 4.7, reviews: 29, experience: "1 año de experiencia", photo: false },
+  { name: "Valentina R.", zone: "Laureles, Medellín", services: ["Paseos", "Cuidado en casa"], price: "Desde $25.000", rating: 4.9, reviews: 87, experience: "4 años de experiencia", image: caregiverPhoto },
+  { name: "Andrés M.", zone: "Envigado", services: ["Hospedaje", "Paseos"], price: "Desde $60.000 / noche", rating: 4.8, reviews: 64, experience: "3 años de experiencia", image: caregiverPhoto },
+  { name: "Camila T.", zone: "El Poblado, Medellín", services: ["Guardería diurna"], price: "Desde $40.000 / día", rating: 5.0, reviews: 112, experience: "5 años de experiencia", image: guarderiaPhoto.url },
+  { name: "Santiago G.", zone: "Bello", services: ["Cuidado nocturno", "Paseos"], price: "Desde $35.000", rating: 4.7, reviews: 41, experience: "2 años de experiencia", image: cuidadoNocturnoPhoto.url },
+  { name: "Daniela P.", zone: "Sabaneta", services: ["Cuidado en casa", "Guardería"], price: "Desde $45.000", rating: 4.9, reviews: 58, experience: "3 años de experiencia", image: guarderiaPhoto.url },
+  { name: "Juan Camilo V.", zone: "Itagüí", services: ["Paseos", "Entrenamiento básico"], price: "Desde $28.000", rating: 4.6, reviews: 33, experience: "2 años de experiencia", image: cuidadoNocturnoPhoto.url },
+  { name: "María Fernanda L.", zone: "La Estrella", services: ["Hospedaje", "Cuidado en casa"], price: "Desde $55.000 / noche", rating: 4.8, reviews: 72, experience: "6 años de experiencia", image: guarderiaPhoto.url },
+  { name: "Esteban H.", zone: "Copacabana", services: ["Paseos"], price: "Desde $22.000", rating: 4.7, reviews: 29, experience: "1 año de experiencia", image: cuidadoNocturnoPhoto.url },
 ];
 
 export type Clinic = {
@@ -82,23 +94,24 @@ export type Product = {
   price: number;
   oldPrice?: number;
   brand: string;
+  image?: string;
 };
 
 export const PRODUCT_CATS = ["Alimentos", "Juguetes", "Camas", "Higiene", "Snacks", "Accesorios"];
 
 export const PRODUCTS: Product[] = [
-  { name: "Alimento natural adulto 3 kg", cat: "Alimentos", price: 89900, brand: "NutriPet" },
-  { name: "Alimento cachorro 2 kg", cat: "Alimentos", price: 72500, brand: "NutriPet" },
-  { name: "Cama ortopédica mediana", cat: "Camas", price: 149000, oldPrice: 189000, brand: "DescansoPet" },
-  { name: "Kit de juguetes interactivos", cat: "Juguetes", price: 45500, brand: "PlayDog" },
-  { name: "Snacks dentales x 20", cat: "Snacks", price: 28900, brand: "DentalCan" },
-  { name: "Shampoo hipoalergénico 500 ml", cat: "Higiene", price: 34000, brand: "PelajeSano" },
-  { name: "Correa retráctil 5 m", cat: "Accesorios", price: 52000, brand: "PaseoSeguro" },
-  { name: "Pelota resistente con sonido", cat: "Juguetes", price: 19800, brand: "PlayDog" },
-  { name: "Arena aglomerante gatos 10 kg", cat: "Higiene", price: 46700, brand: "GatoLimpio" },
-  { name: "Arnés acolchado ajustable", cat: "Accesorios", price: 58300, oldPrice: 72000, brand: "PaseoSeguro" },
-  { name: "Snacks de pollo deshidratado", cat: "Snacks", price: 21500, brand: "NaturalBites" },
-  { name: "Cama cueva para gatos", cat: "Camas", price: 98000, brand: "DescansoPet" },
+  { name: "Alimento natural adulto 3 kg", cat: "Alimentos", price: 89900, brand: "NutriPet", image: alimentoPhoto.url },
+  { name: "Alimento cachorro 2 kg", cat: "Alimentos", price: 72500, brand: "NutriPet", image: alimentoPhoto.url },
+  { name: "Cama ortopédica mediana", cat: "Camas", price: 149000, oldPrice: 189000, brand: "DescansoPet", image: camaPhoto.url },
+  { name: "Kit de juguetes interactivos", cat: "Juguetes", price: 45500, brand: "PlayDog", image: pelotaPhoto.url },
+  { name: "Snacks dentales x 20", cat: "Snacks", price: 28900, brand: "DentalCan", image: limpiezaDentalPhoto.url },
+  { name: "Shampoo hipoalergénico 500 ml", cat: "Higiene", price: 34000, brand: "PelajeSano", image: shampooPhoto.url },
+  { name: "Correa retráctil 5 m", cat: "Accesorios", price: 52000, brand: "PaseoSeguro", image: arnesPhoto.url },
+  { name: "Pelota resistente con sonido", cat: "Juguetes", price: 19800, brand: "PlayDog", image: pelotaPhoto.url },
+  { name: "Arena aglomerante gatos 10 kg", cat: "Higiene", price: 46700, brand: "GatoLimpio", image: arenaPhoto.url },
+  { name: "Arnés acolchado ajustable", cat: "Accesorios", price: 58300, oldPrice: 72000, brand: "PaseoSeguro", image: arnesPhoto.url },
+  { name: "Snacks de pollo deshidratado", cat: "Snacks", price: 21500, brand: "NaturalBites", image: snackPhoto.url },
+  { name: "Cama cueva para gatos", cat: "Camas", price: 98000, brand: "DescansoPet", image: camaPhoto.url },
 ];
 
 export type AdoptablePet = {

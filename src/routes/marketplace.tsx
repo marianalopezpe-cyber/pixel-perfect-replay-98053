@@ -70,8 +70,12 @@ function MarketplacePage() {
           const inCart = cart[p.name] ?? 0;
           return (
             <article key={p.name} className="flex flex-col rounded-3xl bg-card p-4 shadow-soft transition-shadow hover:shadow-lift">
-              <div className="relative grid aspect-square place-items-center rounded-2xl bg-peach-light">
-                <Bone className="h-12 w-12 text-accent" />
+              <div className="relative grid aspect-square place-items-center overflow-hidden rounded-2xl bg-peach-light">
+                {p.image ? (
+                  <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-cover" />
+                ) : (
+                  <Bone className="h-12 w-12 text-accent" />
+                )}
                 {p.oldPrice && (
                   <span className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-brand px-2.5 py-1 text-[11px] font-bold text-primary-foreground">
                     <Tag className="h-3 w-3" /> Oferta
