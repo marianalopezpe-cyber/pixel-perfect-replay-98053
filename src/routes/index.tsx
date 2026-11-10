@@ -43,10 +43,10 @@ const CATEGORIES = [
 ];
 
 const SITTERS = [
-  { name: "Valentina R.", zone: "Laureles", service: "Paseos y cuidado en casa", price: "Desde $25.000", rating: 4.9 },
-  { name: "Andrés M.", zone: "Envigado", service: "Hospedaje en hogar", price: "Desde $60.000 / noche", rating: 4.8 },
-  { name: "Camila T.", zone: "El Poblado", service: "Guardería diurna", price: "Desde $40.000 / día", rating: 5.0 },
-  { name: "Santiago G.", zone: "Bello", service: "Cuidado nocturno", price: "Desde $35.000", rating: 4.7 },
+  { name: "Valentina R.", zone: "Laureles", service: "Paseos y cuidado en casa", price: "Desde $25.000", rating: 4.9, photo: caregiver },
+  { name: "Andrés M.", zone: "Envigado", service: "Hospedaje en hogar", price: "Desde $60.000 / noche", rating: 4.8, photo: caregiver },
+  { name: "Camila T.", zone: "El Poblado", service: "Guardería diurna", price: "Desde $40.000 / día", rating: 5.0, photo: guarderiaPhoto.url },
+  { name: "Santiago G.", zone: "Bello", service: "Cuidado nocturno", price: "Desde $35.000", rating: 4.7, photo: cuidadoNocturnoPhoto.url },
 ];
 const CLINICS = [
   { name: "Clínica Patitas", zone: "Belén", tags: ["Medicina general", "Vacunación"], hours: "Lun–Sáb 8:00–19:00" },
@@ -158,10 +158,10 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
         <SectionHead eyebrow="Cuidadores" title="Cuidadores destacados" to="/cuidadores" cta="Explorar cuidadores" />
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {SITTERS.map((s, i) => (
+          {SITTERS.map((s) => (
             <article key={s.name} className="overflow-hidden rounded-3xl bg-card shadow-soft transition-shadow hover:shadow-lift">
-              {i === 0 ? (
-                <img src={caregiver} alt="Paseadora con dos perros" loading="lazy" width={816} height={816} className="aspect-[16/9] w-full object-cover" />
+              {s.photo ? (
+                <img src={s.photo} alt={`${s.name}, ${s.service}`} loading="lazy" className="aspect-[16/9] w-full object-cover" />
               ) : (
                 <div className="grid aspect-[16/9] place-items-center bg-peach-light">
                   <span className="grid h-16 w-16 place-items-center blob bg-brand font-display text-2xl font-extrabold text-primary-foreground">
